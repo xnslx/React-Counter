@@ -12,17 +12,20 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT":
-      return { ...state, counter: state.counter + 1, dataList: [...state.dataList, state.dataList.push(state.counter)]};
+      return { ...state, counter: state.counter + 1};
     case "DECREMENT":
-      return { ...state, counter: state.counter - 1,dataList: [...state.dataList, state.dataList.push(state.counter)]};
+      return { ...state, counter: state.counter - 1};
     case "ADD":
-      return { ...state, counter: state.counter + 10,dataList: [...state.dataList, state.dataList.push(state.counter)]};
+      return { ...state, counter: state.counter + 10};
     case "SUB":
-      return { ...state, counter: state.counter - 15,dataList: [...state.dataList, state.dataList.push(state.counter)]};
+      return { ...state, counter: state.counter - 15};
+    case "SHOW" :
+      return {...state, dataList: state.dataList.concat(state.counter)}
     default:
       return state;
   }
 };
+
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
   // console.log(state);
@@ -36,7 +39,7 @@ function App() {
         addHandler={() => dispatch({ type: "ADD" })}
         subHandler={() => dispatch({ type: "SUB" })}
       />
-      <StoreCounter changed={() => dispatch({type: "SHOW"})} dataList={state.dataList}/>
+      <StoreCounter clicked={() => dispatch({type: "SHOW"})} dataList={state.dataList}/>
     </div>
   );
 }

@@ -5,9 +5,9 @@ const StoreCounter = (props) => {
     return (
         <>
         <button style={{marginTop:'40px'}} onClick={props.clicked}>Store results</button>
-        <ul>
-            {props.dataList.map(dl => (
-                <li>{dl}</li>
+        <ul style={{listStyle: 'none'}}>
+            {props.dataList.map((dl,index) => (
+                <li key={index}>{dl}</li>
             ))}
         </ul>
         </>
