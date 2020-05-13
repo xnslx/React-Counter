@@ -12,15 +12,13 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT":
-      return { ...state, counter: state.counter + 1};
+      return { ...state, counter: state.counter + 1, dataList: [...state.dataList, state.dataList.push(state.counter)]};
     case "DECREMENT":
-      return { ...state, counter: state.counter - 1};
+      return { ...state, counter: state.counter - 1,dataList: [...state.dataList, state.dataList.push(state.counter)]};
     case "ADD":
-      return { ...state, counter: state.counter + 10};
+      return { ...state, counter: state.counter + 10,dataList: [...state.dataList, state.dataList.push(state.counter)]};
     case "SUB":
-      return { ...state, counter: state.counter - 15};
-    case "SHOW" :
-      return [...state.dataList, state.dataList.push(state.counter)]
+      return { ...state, counter: state.counter - 15,dataList: [...state.dataList, state.dataList.push(state.counter)]};
     default:
       return state;
   }
