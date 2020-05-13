@@ -2,7 +2,7 @@ import React from 'react'
 
 const CurrentCounter = (props) => {
     return (
-        <div>
+        <div style={{marginTop:'20px'}}>
             Current Counter:{props.value}
         </div>
     )
